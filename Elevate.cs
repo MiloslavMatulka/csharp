@@ -70,8 +70,8 @@ public class Elevate {
                 }
                 // Invalid arguments
                 if (!isFileOptionDetected) {
-                    Console.WriteLine("Error: Invalid arguments combination." +
-                        Environment.NewLine + Environment.NewLine + Help());
+                    throw new
+                        ArgumentException("Invalid arguments.");
                 }
                 else {
                     // Provide help if required within the process
@@ -82,6 +82,10 @@ public class Elevate {
                     }
                 }
             }
+        } catch (ArgumentException ae) {
+            // Handle invalid arguments errors
+            Console.WriteLine("Error: " + ae.Message + Environment.NewLine +
+                Environment.NewLine + Help());
         } catch (Exception e) {
             // Handle errors
             Console.WriteLine("Error: " + e.Message + Environment.NewLine +
@@ -97,8 +101,8 @@ public class Elevate {
             Environment.NewLine + "Command line utility." +
             Environment.NewLine + Environment.NewLine +
             "Usage:" + Environment.NewLine +
-            "    Elevate [-h] [-w] [-s state] [-f [path\\]filename]" +
-            " [a1 [a2...]]" +
+            "    Elevate [-h] [-w] [-s state] [-f [path\\]filename" +
+            " [a1 [a2...]]]" +
             Environment.NewLine +  Environment.NewLine +
             "Options: " + Environment.NewLine +
             "    -h                  Provides help." + Environment.NewLine +
