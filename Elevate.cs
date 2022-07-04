@@ -2,9 +2,19 @@ using System;
 using System.Diagnostics;
 
 /// <summary>
-/// Elevate starts a process elevated, command line utility
+/// Class <c>Elevate</c> starts a process elevated, command line utility.
 /// </summary>
 public class Elevate {
+    /// <summary>
+    /// Method <c>Main</c> is the entry point of the class.
+    /// </summary>
+    /// <param name="args">
+    /// <c>args</c> are not used.
+    /// </param>
+    /// <exception cref="System.ArgumentException">
+    /// Thrown if correct arguments not provided.
+    /// Typically, option -f with file not specified.
+    /// </exception>
     public static void Main(string[] args) {
         int i;
         bool isFileOptionDetected = false;
@@ -93,8 +103,12 @@ public class Elevate {
         }
     }
 
-    /// <summary>Help</summary>
-    /// <returns>A string representing help.</returns>
+    /// <summary>
+    /// Method <c>Help</c> provides instructions on how to use the program.
+    /// </summary>
+    /// <returns>
+    /// A string representing help.
+    /// </returns>
     public static string Help() {
         string help =
             "Elevate starts a process elevated (\"As Administrator\")." +
